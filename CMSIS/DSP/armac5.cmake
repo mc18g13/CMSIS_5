@@ -28,16 +28,16 @@ find_program(CMAKE_LINKER NAMES armlink armlink.exe)
 SET(CMAKE_C_LINK_EXECUTABLE "<CMAKE_LINKER> <LINK_FLAGS> -o <TARGET> <LINK_LIBRARIES> <OBJECTS>")
 SET(CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_LINKER> <LINK_FLAGS> -o <TARGET> <LINK_LIBRARIES> <OBJECTS>")
 
-SET(CMAKE_C_RESPONSE_FILE_LINK_FLAG "--via ")
-SET(CMAKE_C_OUTPUT_EXTENSION .o)
-SET(CMAKE_CXX_OUTPUT_EXTENSION .o)
-SET(CMAKE_ASM_OUTPUT_EXTENSION .o)
-# When library defined as STATIC, this line is needed to describe how the .a file must be
-# create. Some changes to the line may be needed.
-SET(CMAKE_C_CREATE_STATIC_LIBRARY "<CMAKE_AR> -r -s --create <TARGET> <LINK_FLAGS> <OBJECTS>" )
-SET(CMAKE_CXX_CREATE_STATIC_LIBRARY "<CMAKE_AR> -r -s --create <TARGET> <LINK_FLAGS> <OBJECTS>" )
+# SET(CMAKE_C_RESPONSE_FILE_LINK_FLAG "--via ")
+# SET(CMAKE_C_OUTPUT_EXTENSION .o)
+# SET(CMAKE_CXX_OUTPUT_EXTENSION .o)
+# SET(CMAKE_ASM_OUTPUT_EXTENSION .o)
+# # When library defined as STATIC, this line is needed to describe how the .a file must be
+# # create. Some changes to the line may be needed.
+# SET(CMAKE_C_CREATE_STATIC_LIBRARY "<CMAKE_AR> -r -s --create <TARGET> <LINK_FLAGS> <OBJECTS>" )
+# SET(CMAKE_CXX_CREATE_STATIC_LIBRARY "<CMAKE_AR> -r -s --create <TARGET> <LINK_FLAGS> <OBJECTS>" )
 
-#SET(CMAKE_ASM_CREATE_STATIC_LIBRARY "${tools}/bin/armar.exe -r -s --create <TARGET> <LINK_FLAGS> <OBJECTS>" )
+# #SET(CMAKE_ASM_CREATE_STATIC_LIBRARY "${tools}/bin/armar.exe -r -s --create <TARGET> <LINK_FLAGS> <OBJECTS>" )
 
 
 set(ARMAC5 ON)
@@ -50,7 +50,7 @@ if(NOT ARM_CPU)
 endif(NOT ARM_CPU)
 
 
-SET(CMAKE_C_FLAGS "--c99 --cpu ${ARM_CPU}" CACHE INTERNAL "C compiler common flags")
+SET(CMAKE_C_FLAGS "-mcpu=cortex-m0plus" CACHE INTERNAL "C compiler common flags")
 SET(CMAKE_CXX_FLAGS "--exceptions --cpp11 --cpp_compat --cpu ${ARM_CPU}" CACHE INTERNAL "C compiler common flags")
 SET(CMAKE_ASM_FLAGS " --cpreproc --cpu ${ARM_CPU}" CACHE INTERNAL "ASM compiler common flags")
 #SET(CMAKE_ASM_FLAGS "--cpu=${ARM_CPU}" CACHE INTERNAL "ASM compiler common flags")

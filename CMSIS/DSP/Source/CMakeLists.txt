@@ -9,7 +9,7 @@ list(APPEND CMAKE_MODULE_PATH ${DSP}/Source)
 list(APPEND CMAKE_MODULE_PATH ${DSP})
 
 
-include(configLib)
+include(${DSP}/configLib.cmake)
 
 
 option(NEON "Neon acceleration" OFF)

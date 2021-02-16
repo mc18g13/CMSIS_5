@@ -1,0 +1,5 @@
+cmake -DROOT="/home/mc18g13/software/CMSIS_5"  \
+ -DCMAKE_C_COMPILER=/usr/bin/arm-none-eabi-gcc \
+ -DCMAKE_ASM_COMPILER=/usr/bin/arm-none-eabi-gcc -DCMAKE_PREFIX_PATH="/usr/bin/" \
+ -DCMAKE_TOOLCHAIN_FILE="../../CMSIS/DSP/armac5.cmake" \
+ -DARM_CPU="cortex-m0plus" ..
